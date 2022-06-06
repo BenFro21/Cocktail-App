@@ -10,7 +10,7 @@ app.use(expressEjsLayouts)
 // Db config 
 require('./config/db')
 //declare route variables 
-// const cocktailRoutes = require('./routes/cocktailRoutes')
+const cocktailRoutes = require('./routes/cocktailRoutes')
 // const userRoutes = require('./routes/userRoutes')
 
 //view engine set up 
@@ -18,13 +18,13 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 ///middlewares begin 
-app.use(methodOverride);
+app.use(methodOverride('_method'));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public')))
 
 // routes begin 
-// app.use('/cocktails', cocktailRoutes)
+app.use('/cocktails', cocktailRoutes)
 // app.use('/user', userRoutes)
 
 
