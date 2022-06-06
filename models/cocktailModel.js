@@ -11,10 +11,10 @@ const cocktailSchema = new mongoose.Schema({
     ingredients: String,
     crafting: String, 
     img: String, 
-    // owner: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User'
-    // }, 
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }, 
     comments: [commentSchema], 
 })
 

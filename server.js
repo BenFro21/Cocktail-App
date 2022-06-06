@@ -11,7 +11,7 @@ app.use(expressEjsLayouts)
 require('./config/db')
 //declare route variables 
 const cocktailRoutes = require('./routes/cocktailRoutes')
-// const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 //view engine set up 
 app.set('views', path.join(__dirname, 'views'))
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // routes begin 
 app.use('/cocktails', cocktailRoutes)
-// app.use('/user', userRoutes)
+app.use('/user', userRoutes)
 
 
 
