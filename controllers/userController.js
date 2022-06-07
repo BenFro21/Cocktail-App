@@ -5,7 +5,7 @@ let showAll = (req, res) => {
 }
 
 let renderCreate = (req, res) => {
-    res.render('user/new')
+    res.render('user/new', {user: User})
 }
 
 let create = (req, res) => {
@@ -30,7 +30,7 @@ let show = (req, res) => {
 }
 
 let renderUpdate = (req, res) => {
-    res.render('users/update')
+    res.render('user/update')
 }
 
 let update = (req, res) => {
