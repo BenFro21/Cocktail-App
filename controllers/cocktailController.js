@@ -16,8 +16,6 @@ let showAll = (req, res) => {
 let renderCreate = (req, res) => {
     res.render('cocktails/new')
 }
-// post reqiest to create the new cocktail 
-/// if statement wrapped a;; create function
 let create = (req,res) => {
     req.body.owner = req.user?.id
     Cocktail.create(req.body, (err, c) => {
