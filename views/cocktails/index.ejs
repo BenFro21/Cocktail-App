@@ -9,8 +9,9 @@
     </tr>
     <% cocktails.forEach((cocktail, index) => { %> 
     <tr>
-        <td><a href=""><%= cocktail.title %></a></td>
+        <td><a href="/cocktails/<%= cocktail.id %> "><%= cocktail.title %></a></td>
         <td><%= cocktail.img %></td>
     </tr>
     <% }) %> 
 </table>
+

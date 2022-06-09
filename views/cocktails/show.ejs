@@ -1,0 +1,53 @@
+<h1> Show page </h1>
+
+<h3><a href="/cocktails/<%= cocktail._id %>/update">Edit Drink</a></h3>
+
+<h3><form action="/cocktails/<%=id%>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form></h3>
+
+<h2>Title:</h2>
+<p><%= cocktail.title %> </p>
+<h2> Ingredients</h2>
+<p><%= cocktail.ingredients %></p>
+<h2>Crafting</h2>
+<p><%= cocktail.crafting %> </p>
+
+<h2>Comments</h2>
+<form method="POST" action="/cocktails/<%= id %>/comments">
+    <label>Comment</label>
+    <textarea name="content"></textarea>
+    <label>Rating</label>
+    <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <input type="submit" value="Add Comments">
+</form>
+<% if(cocktail.comments.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Rating</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cocktail.comments.forEach((r) => { %> 
+                <tr>
+                    <td>
+                        <%= r.rating %> 
+                    </td>
+                    <td>
+                        <%= r.content %> 
+                    </td>
+                </tr>
+                <% }) %> 
+        </tbody>
+    </table>
+    <% } else { %>
+        <h5>No comments yet</h5>
+        <% } %>

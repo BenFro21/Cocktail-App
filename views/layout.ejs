@@ -9,8 +9,15 @@
 <body>
     <header>
         <a href="/cocktails">Home</a>
+        <% if(!user){   %> 
+        <a href="/auth/google">Sign Up</a>
+        <a href="/auth/google">Sign In</a>
+        <% }else{ %> 
         <a href="/cocktails/new">New cocktail</a>
-        <a href="/user/new">Sign up</a>
+        <a href="/users/<%= user?._id %>"><%= user?.name %> </a>
+        <a href="/logout">Logout</a>
+
+        <% } %> 
     </header>
 
     <%- body %> 

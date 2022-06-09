@@ -1,7 +1,7 @@
 const User = require('../models/userModel')
 
 let showAll = (req, res) => {
-
+    console.log('showall')
 }
 
 let renderCreate = (req, res) => {
@@ -25,7 +25,7 @@ let show = (req, res) => {
             res.status(400).json(err)
             return
         }
-        res.redirct('/user')
+        res.render('user/show', {id: req.params.id, user: u})
     })
 }
 
@@ -40,7 +40,7 @@ let update = (req, res) => {
             return
         }
         u.save()
-        res.redirct('/user')
+        res.redirect('/user')
     })
 }
 
@@ -50,6 +50,7 @@ let deleteIt = (req, res) => {
             res.status(400).json(err)
             return
         }
+        res.redirect('/cocktails')
     })
     
 }

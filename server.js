@@ -16,8 +16,10 @@ require('./config/db')
 require('./config/passport')
 
 //declare route variables 
+const indexRoutes = require('./routes/index')
 const cocktailRoutes = require('./routes/cocktailRoutes')
 const userRoutes = require('./routes/userRoutes')
+const commentsRoutes = require('./routes/comments')
 
 //view engine set up 
 app.use(expressEjsLayouts)
@@ -32,17 +34,23 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(cookieParser())
 
 app.use(session({
-    secret: 'Firefly21',
+    secret: process.env.GOOGLE_SECRET,
     resave: false, 
     saveUninitialized: true
     
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use((req,res,next) => {
+    res.locals.user = req.user;
+    next()
+})
 
 // routes begin 
+app.use('/', indexRoutes)
 app.use('/cocktails', cocktailRoutes)
-app.use('/user', userRoutes)
+app.use('/users', userRoutes)
+app.use('/', commentsRoutes )
 
 
 
