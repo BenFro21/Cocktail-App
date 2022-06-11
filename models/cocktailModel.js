@@ -10,12 +10,13 @@ const cocktailSchema = new mongoose.Schema({
     title: String,
     ingredients: String,
     crafting: String, 
-    img: String, 
+    image: String, 
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }, 
-    comments: [commentSchema], 
+    comments: [commentSchema],
+    
 })
 
 module.exports = mongoose.model('Cocktail', cocktailSchema)

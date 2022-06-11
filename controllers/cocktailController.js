@@ -1,29 +1,53 @@
 const Cocktail = require('../models/cocktailModel')
+const ImageModel = require('../models/imagModel')
+const multer = require('multer')
+
+const fileStorageEngine = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images')
+    },
+    filename:(req, file, cb) => {
+        cb(null, Date.now() + '--' + file.originalname )
+    }
+})
+
+const upload= multer({storage: fileStorageEngine})
+
+
+
+/// add multer middle ware here?
 
 //show all cocktails
 let showAll = (req, res) => {
-    console.log('From Cocktail Ctrl line 5', req.user)
-    Cocktail.find({}, (err, cocktails) => {
+    Cocktail.find({})
+    .populate('owner')
+    .exec((err, cocktails) => {
         if(err){
             res.status(400).json(err)
             return
         }
         res.render('cocktails/index', {cocktails, user: req.user})
     })
-
 }
 // render new ejs to make a new cocktail
 let renderCreate = (req, res) => {
     res.render('cocktails/new')
 }
 let create = (req,res) => {
+    console.log(req.file)
     req.body.owner = req.user?.id
     Cocktail.create(req.body, (err, c) => {
         if(err){
             res.status(400).json(err)
             return
         }
-        console.log(c)
+        c.image = new ImageModel({
+            name: req.body.name,
+            image:{
+                data: req.file.filename,
+                contentType: 'image/png'
+            }
+        })
         c.save(err => {
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
@@ -32,13 +56,15 @@ let create = (req,res) => {
 }
 //show details on one cocktail 
 let show = (req, res) => {
-    Cocktail.findById(req.params.id, (err, c) => { 
+    Cocktail.findById(req.params.id)
+    .populate('owner')
+    .exec((err, c) => { 
         if(err){
             res.status(400).json(err)
             return
         }
         res.render('cocktails/show', {cocktail: c, id: req.params.id})
-    })
+    }) 
 }
 //render the update form 
 let renderUpdate = (req, res) => {

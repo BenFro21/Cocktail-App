@@ -1,18 +1,23 @@
+<div class="container">
 <h1> Show page </h1>
-
 <h3><a href="/cocktails/<%= cocktail._id %>/update">Edit Drink</a></h3>
-
 <h3><form action="/cocktails/<%=id%>?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form></h3>
+</div>
 
+<div class="container">
 <h2>Title:</h2>
 <p><%= cocktail.title %> </p>
 <h2> Ingredients</h2>
 <p><%= cocktail.ingredients %></p>
 <h2>Crafting</h2>
 <p><%= cocktail.crafting %> </p>
+<h2>Created by</h2>
+<p> <%= cocktail.owner.name %> </p>
+</div>
 
+<div class="container">
 <h2>Comments</h2>
 <form method="POST" action="/cocktails/<%= id %>/comments">
     <label>Comment</label>
@@ -51,3 +56,4 @@
     <% } else { %>
         <h5>No comments yet</h5>
         <% } %>
+    </div>

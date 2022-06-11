@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/BenFro21/Coktail-App#readme",
   "dependencies": {
+    "bootstrap": "^5.2.0-beta1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
@@ -26,6 +27,7 @@
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "mongoose": "^6.3.5",
+    "multer": "^1.4.5-lts.1",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0"
   }

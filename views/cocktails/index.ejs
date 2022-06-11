@@ -1,17 +1,20 @@
 
-
+<div class="container">
 <h1> All Cocktails</h1>
-<table>
-    <tr>
+</div>
+<div class="container">
+    <table>
+        <tr>
         <th>Cocktail</th>
         <th>Image</th>
         
-    </tr>
+        </tr>
     <% cocktails.forEach((cocktail, index) => { %> 
-    <tr>
-        <td><a href="/cocktails/<%= cocktail.id %> "><%= cocktail.title %></a></td>
-        <td><%= cocktail.img %></td>
-    </tr>
-    <% }) %> 
-</table>
+        <tr>
+            <td><a href="/cocktails/<%= cocktail.id %> "><%= cocktail.title %></a></td>
+            <td><%= cocktail.img %></td>
+        </tr>
+        <% }) %> 
+    </table>
+</div>
 
