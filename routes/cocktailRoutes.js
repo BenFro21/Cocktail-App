@@ -18,7 +18,7 @@ router.get('/', cocktailCtrl.showAll)
 //Render new cocktail page 
 router.get('/new', cocktailCtrl.renderCreate)
 // post request to cocktail page 
-router.post('/', upload.single("image"),  cocktailCtrl.create)
+router.post('/', upload.single("image"), cocktailCtrl.create)
 // show detail page 
 router.get('/:id', cocktailCtrl.show)
 //get update form 

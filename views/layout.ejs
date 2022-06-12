@@ -9,20 +9,26 @@
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <a href="/cocktails"><button class="btn btn-dark">Home</button></a>
-            <% if(!user){   %> 
-            <button class="btn btn-dark"><a href="/auth/google">Sign In</a></button>
-            <button class="btn btn-dark"><a href="/auth/google">Sign Up</a></button>
-            <% }else{ %> 
-           <button class="btn btn-dark"><a href="/cocktails/new">New cocktail</a></button>
-            <button class="btn btn-dark"><a href="/users/<%= user?._id %>"><%= user?.name %> </a></button>
-            <button class="btn btn-dark"><a href="/logout">Logout</a></button>
-            <% } %> 
-        </div>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <div class="row align-items-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav"> 
+                        <a class="nav-link active" aria-current="page" href="/cocktails"><button class="btn btn-dark btn-lg">Home</button></a>
+                        <% if(!user){   %> 
+                        <a class="nav-link" href="/auth/google"><button class="btn btn-dark btn-lg">Sign In</button></a>
+                        <a class="nav-link" href="/auth/google"><button class="btn btn-dark btn-lg">Sign Up</button></a>
+                        <% }else{ %> 
+                        <a class="nav-link" href="/cocktails/new"><button class="btn btn-dark btn-lg">New cocktail</button></a>
+                        <a class="nav-link" href="/users/<%= user?._id %>"><button class="btn btn-dark btn-lg"><%= user?.name %></button></a>
+                        <a class="nav-link" href="/logout"><button class="btn btn-dark btn-lg">Logout</button></a>
+                        <% } %> 
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <%- body %> 
+        <%- body %> 
     
     <footer>
 

@@ -34,7 +34,6 @@ let renderCreate = (req, res) => {
     res.render('cocktails/new')
 }
 let create = (req,res) => {
-    console.log(req.file)
     req.body.owner = req.user?.id
     Cocktail.create(req.body, (err, c) => {
         if(err){
@@ -44,7 +43,7 @@ let create = (req,res) => {
         c.image = new ImageModel({
             name: req.body.name,
             image:{
-                data: req.file.filename,
+                data: req.filename,
                 contentType: 'image/png'
             }
         })

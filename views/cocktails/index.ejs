@@ -6,13 +6,13 @@
     <table>
         <tr>
         <th>Cocktail</th>
-        <th>Image</th>
+        <th>Created By</th>
         
         </tr>
     <% cocktails.forEach((cocktail, index) => { %> 
         <tr>
-            <td><a href="/cocktails/<%= cocktail.id %> "><%= cocktail.title %></a></td>
-            <td><%= cocktail.img %></td>
+            <td><a href="/cocktails/<%= cocktail.id %> "><button class="btn btn-primary"><%= cocktail.title %></button></a></td>
+            <td ><%= cocktail.owner?.name %></td>
         </tr>
         <% }) %> 
     </table>
