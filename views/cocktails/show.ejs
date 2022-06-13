@@ -1,21 +1,34 @@
-<h3><a href="/cocktails/<%= cocktail._id %>/update">Edit Drink</a></h3>
-<h3><form action="/cocktails/<%=id%>?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
-</form></h3>
+<img src="<%=cocktail.image.url %>" alt="cocktail picture">
 
 <div class="container">
-<h2>Name: <%= cocktail.title %></h2>
-<p> </p>
-<h2> Ingredients</h2>
-<p><%= cocktail.ingredients %></p>
-<h2>Crafting</h2>
-<p><%= cocktail.crafting %> </p>
-<h2>Created by</h2>
-<p> <%= cocktail.owner.name %> </p>
-</div>
+    <div class="row row-cols-2">
+      <div class="col">
+          <h4>Name:</h4> <p><%= cocktail.title %></p>
+      </div>
+      <div class="col">
+          <h4>Ingredients:</h4><p><%= cocktail.ingredients %></p>
+      </div>
+      <div class="col">
+          <h4>Crafting:</h4> <p><%= cocktail.crafting %></p> 
+      </div>
+      <div class="col">
+        <h4>Created by:</h4><p><%= cocktail.owner.name %></p>
+        </div>
+      <div class="col">    
+          <h4><a href="/cocktails/<%= cocktail._id %>/update"><button class="btn btn-primary">Update</button></a></h4>
+      </div>
+      <div class="col">
+          <h4>  
+            <form action="/cocktails/<%=id%>?_method=DELETE" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+            </form>
+            </h4>
+        </div>
 
+    </div>
+  </div>
 <div class="container">
-<h2>Comments</h2>
+<h4>Comments</h4>
 <form method="POST" action="/cocktails/<%= id %>/comments">
     <label>Comment</label>
     <textarea name="content"></textarea>
@@ -41,10 +54,12 @@
             <% cocktail.comments.forEach((r) => { %> 
                 <tr>
                     <td>
-                        <%= r.rating %> 
+                        <%= r.content %> 
+
                     </td>
                     <td>
-                        <%= r.content %> 
+                        <%= r.rating %> 
+
                     </td>
                 </tr>
                 <% }) %> 

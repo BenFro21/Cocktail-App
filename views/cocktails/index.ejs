@@ -1,6 +1,6 @@
 
 <div class="container">
-<h1> All Cocktails</h1>
+<h1> Cocktails</h1>
 </div>
 <div class="container">
     <table>
@@ -11,7 +11,7 @@
         </tr>
     <% cocktails.forEach((cocktail, index) => { %> 
         <tr>
-            <td><a href="/cocktails/<%= cocktail.id %> "><button class="btn btn-primary"><%= cocktail.title %></button></a></td>
+            <td><a href="/cocktails/<%= cocktail.id %> "><button class="btn btn-info"><%= cocktail.title %></button></a></td>
             <td ><%= cocktail.owner?.name %></td>
         </tr>
         <% }) %> 
