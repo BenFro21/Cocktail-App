@@ -24,7 +24,7 @@ router.get('/:id', cocktailCtrl.show)
 //get update form 
 router.get('/:id/update', cocktailCtrl.renderUpdate)
 //put request to update 
-router.put('/:id', cocktailCtrl.update)
+router.put('/:id', upload.single("image"), cocktailCtrl.update)
 // destroy 
 router.delete('/:id', cocktailCtrl.deleteIt)
 

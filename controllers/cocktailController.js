@@ -40,29 +40,37 @@ let create = (req,res) => {
             res.status(400).json(err)
             return
         }
-        c.image = new ImageModel({
-            name: req.body.name,
-            image:{
-                data: req.filename,
-                contentType: 'image/png'
-            }
-        })
+        // ImageModel.create({
+        //     name:'test',
+        //     image:{
+        //         data: req.filename,
+        //         contentType: 'image/png'
+        //     }
+        // }).then(image => {
+        c.image = '/images/' + req.file.filename
+        console.log(req.file)
         c.save(err => {
+            console.log(err)
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
-    })
+    // })
+})
+
 }
 //show details on one cocktail 
 let show = (req, res) => {
+
     Cocktail.findById(req.params.id)
     .populate('owner')
+    .populate('image')
     .exec((err, c) => { 
         if(err){
             res.status(400).json(err)
             return
         }
-        res.render('cocktails/show', {cocktail: c, id: req.params.id})
+        console.log(c)
+        res.render('cocktails/show', {cocktail: c, id: req.params.id, image: c.image})
     }) 
 }
 //render the update form 
@@ -83,7 +91,17 @@ let update = (req, res) => {
             res.status(400).json(err)
             return
         }
-        res.redirect('/cocktails')
+        c.image = new ImageModel({
+            name: req.body.name,
+            image:{
+                data: req.filename,
+                contentType: 'image/png'
+            }
+        })
+        c.save(err => {
+            if(err) return res.redirect('/cocktails/new')
+            res.redirect('/cocktails')
+        })
     })
 }
 

@@ -5,13 +5,26 @@ let create = (req, res) => {
         cocktail.comments.push(req.body)
         cocktail.save((err) => {
             if(err){
-                req.status(400).json(err)
+                res.status(400).json(err)
             }
             res.redirect(`/cocktails/${cocktail._id}`)
         })
     }) 
 }
 
+let deleteIt = (req, res) => {
+    Cocktail.findById(req.params.id, (err, c) => {
+        c.comments.id(req.params.commentsId).remove()
+        c.save((err) => {
+            if(err){
+                res.status(400).json(err)
+            }
+            res.redirect(`/cocktails/${c._id}`)
+        })
+    })
+}
+
 module.exports = {
-    create
+    create,
+    deleteIt
 }

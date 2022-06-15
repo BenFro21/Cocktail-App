@@ -1,20 +1,15 @@
+<div class="container ">
+    <div class="row row-cols-12 ">
+    <% cocktails.forEach((cocktail, index) => { %>
+        <div class="col-xxl-1 col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">  
+            <a href="/cocktails/<%= cocktail.id %> "><%= cocktail.title %></a>  
+        </div>
+    <% }) %> 
+    </div>
+</div>
 
-<div class="container">
-<h1> Cocktails</h1>
-</div>
-<div class="container">
-    <table>
-        <tr>
-        <th>Cocktail</th>
-        <th>Created By</th>
-        
-        </tr>
-    <% cocktails.forEach((cocktail, index) => { %> 
-        <tr>
-            <td><a href="/cocktails/<%= cocktail.id %> "><button class="btn btn-info"><%= cocktail.title %></button></a></td>
-            <td ><%= cocktail.owner?.name %></td>
-        </tr>
-        <% }) %> 
-    </table>
-</div>
+
+
+
+
 

@@ -1,4 +1,4 @@
-<img src="<%=cocktail.image.url %>" alt="cocktail picture">
+<img src="<%=cocktail.image %>" alt="cocktail picture">
 
 <div class="container">
     <div class="row row-cols-2">
@@ -14,15 +14,22 @@
       <div class="col">
         <h4>Created by:</h4><p><%= cocktail.owner.name %></p>
         </div>
-      <div class="col">    
-          <h4><a href="/cocktails/<%= cocktail._id %>/update"><button class="btn btn-primary">Update</button></a></h4>
-      </div>
       <div class="col">
+        <% if(cocktail.owner.name === user.name){ %>     
+          <h4>
+            <a href="/cocktails/<%= cocktail._id %>/update"><button class="btn btn-primary">Update</button></a>
+        </h4>
+        <% } %> 
+        </div>
+      <div class="col">
+        <% if(cocktail.owner.name === user.name){ %>     
           <h4>  
             <form action="/cocktails/<%=id%>?_method=DELETE" method="POST">
-            <input class="btn btn-danger" type="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" value="Delete Cocktail">
             </form>
             </h4>
+        <% } %> 
+
         </div>
 
     </div>
@@ -51,15 +58,20 @@
             </tr>
         </thead>
         <tbody>
-            <% cocktail.comments.forEach((r) => { %> 
+            <% cocktail.comments.forEach((c) => { %> 
                 <tr>
                     <td>
-                        <%= r.content %> 
+                        <%= c.content %> 
 
                     </td>
                     <td>
-                        <%= r.rating %> 
+                        <%= c.rating %> 
 
+                    </td>
+                    <td>
+                        <form action="/cocktails/<%= cocktail._id %>/comments/<%= c._id %>?_method=DELETE" method="POST" >
+                            <button class="btn btn-danger" type="submit">Delete Comment</button>
+                        </form>
                     </td>
                 </tr>
                 <% }) %> 

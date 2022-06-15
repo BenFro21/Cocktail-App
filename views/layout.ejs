@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/styles/style.css">
     <title>Cocktails</title>
 </head>
 <body>
+<style>
+  body{
+    background-image: url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
+    color:white;
+    font-size: x-large;
+  }
+</style>
+
     <header>
         <div class="container">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Navbar</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,25 +57,3 @@
 </html>
 
 
-<!-- <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container">
-        <div class="row align-items-start">
-          <div class="col-4">
-            <a class="nav-link active" aria-current="page" href="/cocktails"><button class="btn btn-dark btn-lg">Home</button></a>
-          </div>
-          <div class="col-4">
-                <a class="nav-link active" href="/auth/google"><button class="btn btn-dark btn-lg">Sign In</button></a>
-          </div>
-          <div class="col-4">
-            <a class="nav-link active" href="/auth/google"><button class="btn btn-dark btn-lg">Sign Up</button></a>
-          </div>
-          <div class="col-12">
-            <a class="nav-link active" href="/cocktails/new"><button class="btn btn-dark btn-lg">New cocktail</button></a>
-          </div>
-          <div class="col-12">
-            <a class="nav-link active" href="/users/<%= user?._id %>"><button class="btn btn-dark btn-lg"><%= user?.name %></button></a>
-          </div>
-          <div class="col-12">
-            <a class="nav-link active" href="/logout"><button class="btn btn-dark btn-lg">Logout</button></a>
-          </div>
-        </nav> -->
