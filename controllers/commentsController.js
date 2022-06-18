@@ -2,6 +2,7 @@ const Cocktail = require('../models/cocktailModel')
 
 let create = (req, res) => {
     Cocktail.findById(req.params.id, (err, cocktail) => {
+        req.body.owner = req.user._id
         cocktail.comments.push(req.body)
         cocktail.save((err) => {
             if(err){

@@ -3,7 +3,11 @@ const mongoose = require('mongoose')
 
 const commentSchema = new mongoose.Schema({
     content: String, 
-    rating: {type: Number, min: 1, max:5, default: 5}, 
+    rating: {type: Number, min: 1, max:5, default: 5},
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    } 
 })
 
 

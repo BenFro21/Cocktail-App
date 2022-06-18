@@ -1,7 +1,7 @@
 // require modules 
 const express = require('express');
 const app = express();
-const PORT = 9000;
+const PORT = normalizePort(process.env.PORT || '9000');
 const path = require('path')
 const methodOverride = require('method-override')
 const expressEjsLayouts = require('express-ejs-layouts')

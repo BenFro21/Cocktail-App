@@ -15,9 +15,7 @@ const upload= multer({storage: fileStorageEngine})
 
 
 
-/// add multer middle ware here?
 
-//show all cocktails
 let showAll = (req, res) => {
     Cocktail.find({})
     .populate('owner')
@@ -29,7 +27,6 @@ let showAll = (req, res) => {
         res.render('cocktails/index', {cocktails, user: req.user})
     })
 }
-// render new ejs to make a new cocktail
 let renderCreate = (req, res) => {
     res.render('cocktails/new')
 }
@@ -48,17 +45,15 @@ let create = (req,res) => {
         //     }
         // }).then(image => {
         c.image = '/images/' + req.file.filename
-        console.log(req.file)
         c.save(err => {
             console.log(err)
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
     // })
-})
-
+    })
 }
-//show details on one cocktail 
+
 let show = (req, res) => {
 
     Cocktail.findById(req.params.id)
@@ -69,8 +64,8 @@ let show = (req, res) => {
             res.status(400).json(err)
             return
         }
-        console.log(c)
-        res.render('cocktails/show', {cocktail: c, id: req.params.id, image: c.image})
+        // console.log(c.comments[0].owner.equals(req.user._id))
+        res.render('cocktails/show', {cocktail: c, id: req.params.id, user: req.user})
     }) 
 }
 //render the update form 
@@ -91,14 +86,11 @@ let update = (req, res) => {
             res.status(400).json(err)
             return
         }
-        c.image = new ImageModel({
-            name: req.body.name,
-            image:{
-                data: req.filename,
-                contentType: 'image/png'
-            }
-        })
+        if(req.file.filename){
+        return c.image = '/images/' + req.file.filename
+        }
         c.save(err => {
+            console.log(err)
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
