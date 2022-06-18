@@ -48,10 +48,10 @@ app.use((req,res,next) => {
 })
 
 // routes begin 
-app.use('/i', indexRoutes)
+app.use('/', indexRoutes)
 app.use('/cocktails', cocktailRoutes)
 app.use('/users', userRoutes)
-app.use('/c', commentsRoutes )
+app.use('/', commentsRoutes )
 
 
 
