@@ -1,18 +1,16 @@
-
-
 <div class="container">
     <div class="row row-cols-2">
       <div class="col">
           <h4>Name:</h4> <p><%= cocktail.title %></p>
       </div>
       <div class="col">
-          <h4>Ingredients:</h4><p><%= cocktail.ingredients %></p>
-      </div>
-      <div class="col">
-          <h4>Crafting:</h4> <p><%= cocktail.crafting %></p> 
-      </div>
-      <div class="col">
         <h4>Created by:</h4><p><%= cocktail.owner.name %></p>
+      </div>
+      <div class="col">
+        <h4>Ingredients:</h4><p><%= cocktail.ingredients %></p>
+      </div>
+      <div class="col">
+        <h4>Crafting:</h4> <p><%= cocktail.crafting %></p> 
         </div>
       <div class="col">
         <% if(cocktail.owner?.name === user?.name){ %>     
@@ -31,11 +29,14 @@
         <% } %> 
         </div>
         <div class="col">
-        <p style="max-width: 300px; max-height: 500px;"><img style="max-width: 300px; max-height: 500px;" src="<%=cocktail.image %>" alt="cocktail picture"></p>
+            <figure class="figure">
+                <img src="<%=cocktail.image %>" class="figure-img img-fluid rounded" alt="Cocktail Picture">
+                <figcaption class="figure-caption"><%= cocktail.title%> picture </figcaption>
+              </figure>
         </div>
-
     </div>
   </div>
+
 <div class="container">
 <form method="POST" action="/cocktails/<%= id %>/comments">
     <label>Comment</label>
@@ -71,13 +72,11 @@
                     </td>
                     <td>
                         <!-- <% //if(c.owner === user?._id){ %>      -->
-                     <% if(cocktail.owner?.name === user?.name){ %>     
-                            
+                     <% if(cocktail.owner?.name === user?.name){ %>                               
                         <form action="/cocktails/<%= cocktail._id %>/comments/<%= c._id %>?_method=DELETE" method="POST" >
                             <button class="btn btn-danger" type="submit">Delete Comment</button>
                         </form>
                         <% } %>
-
                     </td>
                 </tr>
                 <% }) %> 

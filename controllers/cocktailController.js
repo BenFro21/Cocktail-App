@@ -44,14 +44,15 @@ let create = (req,res) => {
         //         contentType: 'image/png'
         //     }
         // }).then(image => {
-        if(req.file){
-           return c.image = '/images/' + req.file.filename
-        }
+        // if(req.file.filename){
+          c.image = '/images/' + req.file.filename
+        // }
         c.save(err => {
             console.log(err)
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
+    
     // })
     })
 }
