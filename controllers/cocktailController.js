@@ -44,7 +44,9 @@ let create = (req,res) => {
         //         contentType: 'image/png'
         //     }
         // }).then(image => {
-        c.image = '/images/' + req.file.filename
+        if(req.file){
+           return c.image = '/images/' + req.file.filename
+        }
         c.save(err => {
             console.log(err)
             if(err) return res.redirect('/cocktails/new')
