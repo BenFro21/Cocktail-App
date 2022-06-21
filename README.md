@@ -86,10 +86,10 @@ https://cocktailrecipeapp.herokuapp.com/cocktails
 
 
 ### Planning
-# Your project idea
+## Your project idea
   A cocktail recipe app that users can sign in and make cocktail recipes. You will be able to see all the cocktail recipes if you are a user or not but only users will be able to create new recipes.
 
-# MVP
+## MVP
 * A website that will have full CRUD to make new users and new drink recipes.
 * The users will be able to make new cocktails to add to the master list of cocktails
 
@@ -101,7 +101,7 @@ https://cocktailrecipeapp.herokuapp.com/cocktails
 
 * I plan on using EJS for a header and footer/ different views
 
-# Stretch Goals
+## Stretch Goals
 
 * Bring in a 3rd party drink api
 
@@ -109,54 +109,53 @@ https://cocktailrecipeapp.herokuapp.com/cocktails
 
 * Use a framework like bootstrap and have portfolio quality styling.
 
-# Front-end
+## Front-end
 I plan on using EJS for the front end.
 
-# List of Mongoose models and their properties
-* Cocktail Schema:{
-  * title: { type: String, required true}
+## List of Mongoose models and their properties
+Cocktail Schema:{
+* title: { type: String, required true}
 * ingredients: [String],
 * How to make the drink: String,
 * comments: [comment Schema]
 * image: String?
 
 Comment Schema:{
-  * content: String,
+* content: String,
 * rating: type: number, min, max, default
 * favorite: Boolian
 
 User Schema:{
-  * Name: String
+* Name: String
 * email: string
 * Created cocktails: [string]
+* favorite cocktails: [string]
 
-* avorite cocktails: [string]
-
-# List of Routes
-Cocktails routes:
-index: /cocktail (GET: display all cocktails)
-new: /cocktail/new (GET: renders form to create a new cocktail)
-Create: /cocktail (Post request to make a new cocktail)
-Show: /cocktail/:id (GET: show details of one cocktail)
-Edit: /cocktail/:id/edit (GET: Render the update page)
-Update: /cocktail/:id (PATCH: Updates the current cocktail)
-Destroy: /cocktail/id (DELETE: Destroy current cocktail
+## List of Routes
+# Cocktails routes:
+* index: /cocktail (GET: display all cocktails)
+* new: /cocktail/new (GET: renders form to create a new cocktail)
+* Create: /cocktail (Post request to make a new cocktail)
+* Show: /cocktail/:id (GET: show details of one cocktail)
+* Edit: /cocktail/:id/edit (GET: Render the update page)
+* Update: /cocktail/:id (PATCH: Updates the current cocktail)
+* Destroy: /cocktail/id (DELETE: Destroy current cocktail
 
 User Routes:
-index: /user (GET: Render the sign in page)
-new: /user/new (GET: render the sign up page)
-Create: /user (POST: create a new user)
-Show: /user/:id (GET: Show the users profile
-Edit: /user/:id/edit (GET: render the page to edit user information)
-Update: /user/:id (PATCH: update the users info)
-Destroy: /user/:id (DELETE: destroy the user)
+* index: /user (GET: Render the sign in page)
+* new: /user/new (GET: render the sign up page)
+* Create: /user (POST: create a new user)
+* Show: /user/:id (GET: Show the users profile
+* Edit: /user/:id/edit (GET: render the page to edit user information)
+* Update: /user/:id (PATCH: update the users info)
+* Destroy: /user/:id (DELETE: destroy the user)
 
 # User stories
-As a guest of the website I want to see all the cocktail recipes.
-As a guest I want to be able to create an account
-As a USER I want to have full CRUD on making new cocktails
-As a user I want to be able to favorite certain recipes
-As a user Iwant to leave comments on drink recipes
+* As a guest of the website I want to see all the cocktail recipes.
+* As a guest I want to be able to create an account
+* As a USER I want to have full CRUD on making new cocktails
+* As a user I want to be able to favorite certain recipes
+* As a user Iwant to leave comments on drink recipes
 
 ### Next Steps
 <p>
