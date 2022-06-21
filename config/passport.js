@@ -15,7 +15,6 @@ passport.use(
                   if (user) {
                     return cb(null, user);
                   } else {
-                    // we have a new student via OAuth!
                     var newStudent = new User({
                       name: googleProfile.displayName,
                       email: googleProfile.emails[0].value,

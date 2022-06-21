@@ -72,7 +72,6 @@
 
                     </td>
                     <td>
-                        <!-- <% //if(c.owner === user?._id){ %>      -->
                      <% if(cocktail.owner?.name === user?.name){ %>                               
                         <form action="/cocktails/<%= cocktail._id %>/comments/<%= c._id %>?_method=DELETE" method="POST" >
                             <button class="btn btn-danger" type="submit">Delete Comment</button>

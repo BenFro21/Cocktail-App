@@ -1,4 +1,3 @@
-// require modules 
 const express = require('express');
 const app = express();
 const normalizePort = require('normalize-port')
@@ -12,22 +11,18 @@ const cookieParser = require('cookie-parser')
 
 require('dotenv').config()
 
-// Db config 
 require('./config/db')
 require('./config/passport')
 
-//declare route variables 
 const indexRoutes = require('./routes/index')
 const cocktailRoutes = require('./routes/cocktailRoutes')
 const userRoutes = require('./routes/userRoutes')
 const commentsRoutes = require('./routes/comments')
 
-//view engine set up 
 app.use(expressEjsLayouts)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
-///middlewares begin 
 app.use(methodOverride('_method'));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
@@ -47,7 +42,6 @@ app.use((req,res,next) => {
     next()
 })
 
-// routes begin 
 app.use('/', indexRoutes)
 app.use('/cocktails', cocktailRoutes)
 app.use('/users', userRoutes)

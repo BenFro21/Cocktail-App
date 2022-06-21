@@ -1,5 +1,5 @@
 const Cocktail = require('../models/cocktailModel')
-const ImageModel = require('../models/imagModel')
+// const ImageModel = require('../models/imagModel')
 const multer = require('multer')
 
 const fileStorageEngine = multer.diskStorage({
@@ -11,7 +11,7 @@ const fileStorageEngine = multer.diskStorage({
     }
 })
 
-const upload= multer({storage: fileStorageEngine})
+// const upload= multer({storage: fileStorageEngine})
 
 
 
@@ -49,7 +49,7 @@ let create = (req,res) => {
         // }).then(image => {
         if(req.file){
         c.image = '/images/' + req.file.filename
-    }
+        }
         c.save(err => {
             console.log(err)
             if(err) return res.redirect('/cocktails/new')
@@ -87,14 +87,17 @@ let renderUpdate = (req, res) => {
 
 // Request to make the update happen 
 let update = (req, res) => {
+    if(!req.file){
+        delete req.body['image']
+      }
     Cocktail.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, c) => {
         if(err){
             res.status(400).json(err)
             return
         }
-        // if(req.file.filename){
+        if(req.file){
         c.image = '/images/' + req.file.filename
-        // }
+        }
         c.save(err => {
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
