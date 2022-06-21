@@ -32,6 +32,9 @@ let renderCreate = (req, res) => {
 }
 let create = (req,res) => {
     req.body.owner = req.user?.id
+    if(!req.file){
+        delete req.body['image']
+      }
     Cocktail.create(req.body, (err, c) => {
         if(err){
             res.status(400).json(err)
@@ -44,9 +47,9 @@ let create = (req,res) => {
         //         contentType: 'image/png'
         //     }
         // }).then(image => {
-        // if(req.file.filename){
-          c.image = '/images/' + req.file.filename
-        // }
+        if(req.file){
+        c.image = '/images/' + req.file.filename
+    }
         c.save(err => {
             console.log(err)
             if(err) return res.redirect('/cocktails/new')
@@ -89,11 +92,10 @@ let update = (req, res) => {
             res.status(400).json(err)
             return
         }
-        if(req.file.filename){
-        return c.image = '/images/' + req.file.filename
-        }
+        // if(req.file.filename){
+        c.image = '/images/' + req.file.filename
+        // }
         c.save(err => {
-            console.log(err)
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
