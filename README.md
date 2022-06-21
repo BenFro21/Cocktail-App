@@ -90,39 +90,47 @@ https://cocktailrecipeapp.herokuapp.com/cocktails
   A cocktail recipe app that users can sign in and make cocktail recipes. You will be able to see all the cocktail recipes if you are a user or not but only users will be able to create new recipes.
 
 # MVP
--A website that will have full CRUD to make new users and new drink recipes.
--The users will be able to make new cocktails to add to the master list of cocktails
--A full list of the the cocktails will be displayed for anyone to see, user or not
--Users will have the ability to favorite drink recipes
--Drinks will have a comments/ review section on them.
--I plan on using EJS for a header and footer/ different views
+* A website that will have full CRUD to make new users and new drink recipes.
+* The users will be able to make new cocktails to add to the master list of cocktails
+
+* A full list of the the cocktails will be displayed for anyone to see, user or not
+
+* Users will have the ability to favorite drink recipes
+
+* Drinks will have a comments/ review section on them.
+
+* I plan on using EJS for a header and footer/ different views
 
 # Stretch Goals
--Bring in a 3rd party drink api
--add the ability to add pictures using Multer
--Use a framework like bootstrap and have portfolio quality styling.
+
+* Bring in a 3rd party drink api
+
+* add the ability to add pictures using Multer
+
+* Use a framework like bootstrap and have portfolio quality styling.
 
 # Front-end
 I plan on using EJS for the front end.
 
 # List of Mongoose models and their properties
-Cocktail Schema:{
-title: { type: String, required true}
-ingredients: [String],
-How to make the drink: String,
-comments: [comment Schema]
-image: String?
+* Cocktail Schema:{
+  * title: { type: String, required true}
+* ingredients: [String],
+* How to make the drink: String,
+* comments: [comment Schema]
+* image: String?
 
 Comment Schema:{
-content: String,
-rating: type: number, min, max, default
-favorite: Boolian
+  * content: String,
+* rating: type: number, min, max, default
+* favorite: Boolian
 
 User Schema:{
-Name: String
-email: string
-Created cocktails: [string]
-favorite cocktails: [string]
+  * Name: String
+* email: string
+* Created cocktails: [string]
+
+* avorite cocktails: [string]
 
 # List of Routes
 Cocktails routes:
