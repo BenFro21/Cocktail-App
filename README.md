@@ -24,16 +24,12 @@
 <br />
 <div align="center">
   <a href="https://cocktailrecipeapp.herokuapp.com/cocktails">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./imgReadMe/Old Fashion.jpg" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Cocktail App</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <br />
-    <br />
     <a href="[https://github.com/BenFro21/Cocktail-App](https://cocktailrecipeapp.herokuapp.com/cocktails)">View Demo</a> 
   </p>
 </div>
@@ -50,11 +46,10 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#">Usage</a></li>
-    <li><a href="#planning">Planning</a></li>
-    <li><a href="#nextsteps">Next Steps</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#Usage">Usage</a></li>
+    <li><a href="#Planning">Planning</a></li>
+    <li><a href="#Next steps">Next Steps</a></li>
+    <li><a href="#Contact">Contact</a></li>
   </ol>
 </details>
 
@@ -86,103 +81,99 @@ Browse and create cocktail recipes. Log in with google to create a profile that 
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Usage
 https://cocktailrecipeapp.herokuapp.com/cocktails
 
 
-### Prerequisi
+### Planning
+# Your project idea
+  A cocktail recipe app that users can sign in and make cocktail recipes. You will be able to see all the cocktail recipes if you are a user or not but only users will be able to create new recipes.
 
-### Installation
+# MVP
+-A website that will have full CRUD to make new users and new drink recipes.
+-The users will be able to make new cocktails to add to the master list of cocktails
+-A full list of the the cocktails will be displayed for anyone to see, user or not
+-Users will have the ability to favorite drink recipes
+-Drinks will have a comments/ review section on them.
+-I plan on using EJS for a header and footer/ different views
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/BenFro21/Coktail-App.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+# Stretch Goals
+-Bring in a 3rd party drink api
+-add the ability to add pictures using Multer
+-Use a framework like bootstrap and have portfolio quality styling.
+
+# Front-end
+I plan on using EJS for the front end.
+
+# List of Mongoose models and their properties
+Cocktail Schema:{
+title: { type: String, required true}
+ingredients: [String],
+How to make the drink: String,
+comments: [comment Schema]
+image: String?
+
+Comment Schema:{
+content: String,
+rating: type: number, min, max, default
+favorite: Boolian
+
+User Schema:{
+Name: String
+email: string
+Created cocktails: [string]
+favorite cocktails: [string]
+
+# List of Routes
+Cocktails routes:
+index: /cocktail (GET: display all cocktails)
+new: /cocktail/new (GET: renders form to create a new cocktail)
+Create: /cocktail (Post request to make a new cocktail)
+Show: /cocktail/:id (GET: show details of one cocktail)
+Edit: /cocktail/:id/edit (GET: Render the update page)
+Update: /cocktail/:id (PATCH: Updates the current cocktail)
+Destroy: /cocktail/id (DELETE: Destroy current cocktail
+
+User Routes:
+index: /user (GET: Render the sign in page)
+new: /user/new (GET: render the sign up page)
+Create: /user (POST: create a new user)
+Show: /user/:id (GET: Show the users profile
+Edit: /user/:id/edit (GET: render the page to edit user information)
+Update: /user/:id (PATCH: update the users info)
+Destroy: /user/:id (DELETE: destroy the user)
+
+# User stories
+As a guest of the website I want to see all the cocktail recipes.
+As a guest I want to be able to create an account
+As a USER I want to have full CRUD on making new cocktails
+As a user I want to be able to favorite certain recipes
+As a user Iwant to leave comments on drink recipes
+
+### Next Steps
+<p>
+I look forward to taking my styling to the next level. 
+I would like to add more Oauth's and a user sign up with a created username and password\
+Entering in the instuctions for each cocktail by steps rather then a long string 
+
+</p>
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
-
-See the [open issues](https://github.com/BenFro21/Cocktail-App/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - broad0601@email_client.com
+Project Link: [https://github.com/BenFro21/Cocktail-App](https://cocktailrecipeapp.herokuapp.com/cocktails)
 
-Project Link: [https://github.com/BenFro21/Cocktail-App](https://github.com/BenFro21/Cocktail-App)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
+Email: broad0601@gmail.com
+Linkdin: (https://www.linkedin.com/in/benbroad21/)
+Phone:231-633-3272
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 
 
