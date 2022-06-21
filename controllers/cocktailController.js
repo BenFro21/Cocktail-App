@@ -13,9 +13,6 @@ const fileStorageEngine = multer.diskStorage({
 
 // const upload= multer({storage: fileStorageEngine})
 
-
-
-
 let showAll = (req, res) => {
     Cocktail.find({})
     .populate('owner')
@@ -27,9 +24,11 @@ let showAll = (req, res) => {
         res.render('cocktails/index', {cocktails, user: req.user})
     })
 }
+
 let renderCreate = (req, res) => {
     res.render('cocktails/new')
 }
+
 let create = (req,res) => {
     req.body.owner = req.user?.id
     if(!req.file){
@@ -55,13 +54,11 @@ let create = (req,res) => {
             if(err) return res.redirect('/cocktails/new')
             res.redirect('/cocktails')
         })
-    
     // })
     })
 }
 
 let show = (req, res) => {
-
     Cocktail.findById(req.params.id)
     .populate('owner')
     .populate('image')
@@ -70,11 +67,10 @@ let show = (req, res) => {
             res.status(400).json(err)
             return
         }
-        // console.log(c.comments[0].owner.equals(req.user._id))
         res.render('cocktails/show', {cocktail: c, id: req.params.id, user: req.user})
     }) 
 }
-//render the update form 
+
 let renderUpdate = (req, res) => {
    Cocktail.findById(req.params.id, (err, c) => { 
         if(err){
@@ -85,7 +81,6 @@ let renderUpdate = (req, res) => {
     })
 }
 
-// Request to make the update happen 
 let update = (req, res) => {
     if(!req.file){
         delete req.body['image']
