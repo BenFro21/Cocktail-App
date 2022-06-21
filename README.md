@@ -172,11 +172,10 @@ Entering in the instuctions for each cocktail by steps rather then a long string
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/BenFro21/Cocktail-App](https://cocktailrecipeapp.herokuapp.com/cocktails)
-
-Email: broad0601@gmail.com
-Linkdin: (https://www.linkedin.com/in/benbroad21/)
-Phone:231-633-3272
+* Project Link: [https://github.com/BenFro21/Cocktail-App](https://cocktailrecipeapp.herokuapp.com/cocktails)
+* Email: broad0601@gmail.com
+* Linkdin: (https://www.linkedin.com/in/benbroad21/)
+* Phone:231-633-3272
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
